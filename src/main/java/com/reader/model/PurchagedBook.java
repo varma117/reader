@@ -14,7 +14,8 @@ public class PurchagedBook {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer pId;
-	private Date purchagedTime;
+	
+	private Date purchagedTime= new Date();
 	
 	public Long getBookId() {
 		return bookId;
@@ -31,14 +32,12 @@ public class PurchagedBook {
 	public Date getPurchagedTime() {
 		return purchagedTime;
 	}
-	public void setPurchagedTime(Date purchagedTime) {
-		this.purchagedTime = purchagedTime;
-	}
-	public PurchagedBook(Long bookId, Integer pId, Date purchagedTime) {
+	
+	public PurchagedBook(Long bookId, Integer pId) {
 		super();
 		this.bookId = bookId;
 		this.pId = pId;
-		this.purchagedTime = purchagedTime;
+		
 	}
 	public PurchagedBook() {
 		super();

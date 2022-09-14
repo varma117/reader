@@ -21,6 +21,9 @@ public class Reader {
 	private String name;
 	@Column
 	private String email;
+	//provide getter,s,c and send manually book id
+	private List<Integer> book;
+	
 	@Column
 	@ElementCollection(targetClass=PurchagedBook.class)
 	private List<PurchagedBook> books;
@@ -43,14 +46,22 @@ public class Reader {
 	public void setBooks(List<PurchagedBook> books) {
 		this.books = books;
 	}
-	public Reader(String name, String email, List<PurchagedBook> books) {
+	public Long getrId() {
+		return rId;
+	}
+	public void setrId(Long rId) {
+		this.rId = rId;
+	}
+	
+	public Reader() {
 		super();
+	}
+	public Reader(Long rId, String name, String email, List<PurchagedBook> books) {
+		super();
+		this.rId = rId;
 		this.name = name;
 		this.email = email;
 		this.books = books;
-	}
-	public Reader() {
-		super();
 	}
 	
 
