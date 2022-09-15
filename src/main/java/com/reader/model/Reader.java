@@ -1,9 +1,6 @@
 package com.reader.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,12 +18,6 @@ public class Reader {
 	private String name;
 	@Column
 	private String email;
-	//provide getter,s,c and send manually book id
-	private List<Integer> book;
-	
-	@Column
-	@ElementCollection(targetClass=PurchagedBook.class)
-	private List<PurchagedBook> books;
 	
 	public String getName() {
 		return name;
@@ -40,12 +31,7 @@ public class Reader {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public List<PurchagedBook> getBooks() {
-		return books;
-	}
-	public void setBooks(List<PurchagedBook> books) {
-		this.books = books;
-	}
+	
 	public Long getrId() {
 		return rId;
 	}
@@ -56,12 +42,12 @@ public class Reader {
 	public Reader() {
 		super();
 	}
-	public Reader(Long rId, String name, String email, List<PurchagedBook> books) {
+	public Reader(Long rId, String name, String email) {
 		super();
 		this.rId = rId;
 		this.name = name;
 		this.email = email;
-		this.books = books;
+		
 	}
 	
 

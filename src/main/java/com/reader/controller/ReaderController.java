@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.book.dto.BookDTO;
 import com.book.model.Book;
 import com.book.service.BookServiceImpl;
+import com.reader.model.PurchagedBook;
 import com.reader.model.Reader;
 import com.reader.service.IReaderService;
 import com.reader.service.ReaderServiceImpl;
@@ -50,6 +51,14 @@ public class ReaderController
 		return books;
 		
 	}
+	
+	@GetMapping("/getallbooks")
+	public List<BookDTO> getBooks(){
+		List<BookDTO> books = bookService.getAllBooks();
+		return books;
+		
+	}
+	
 	@GetMapping("/getbook/{category}/{price}/{authorName}")
 	public List<BookDTO> getBook(@PathVariable String category,@PathVariable Integer price,@PathVariable String authorName ){
 		
@@ -58,10 +67,11 @@ public class ReaderController
 		
 	}
 	
-	@PostMapping( value="/createreader",consumes="application/json")
-	
-	public Long createReader(@RequestBody Reader reader) {
-		Long id = readerService.createReader(reader);
+	//@PostMapping( value="/createreader",consumes="application/json")
+	@PostMapping("/purchasebook")
+	public Long createReader(@RequestBody Reader reader,@RequestBody PurchagedBook pbook) {
+		Long id = readerService.createReader(reader,pbook);
+		Long  pid = readerService.createReader(reader, pbook);
 		return id;
 		
 	}

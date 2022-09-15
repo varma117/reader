@@ -10,10 +10,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name ="purchagedbook")
 public class PurchagedBook {
+	
 	private Long bookId;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer pId;
+	private Long pId;
 	
 	private Date purchagedTime= new Date();
 	
@@ -23,17 +24,17 @@ public class PurchagedBook {
 	public void setBookId(Long bookId) {
 		this.bookId = bookId;
 	}
-	public Integer getpId() {
+	public Long getpId() {
 		return pId;
 	}
-	public void setpId(Integer pId) {
+	public void setpId(Long pId) {
 		this.pId = pId;
 	}
 	public Date getPurchagedTime() {
 		return purchagedTime;
 	}
 	
-	public PurchagedBook(Long bookId, Integer pId) {
+	public PurchagedBook(Long bookId, Long pId) {
 		super();
 		this.bookId = bookId;
 		this.pId = pId;
