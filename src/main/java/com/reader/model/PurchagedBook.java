@@ -34,16 +34,10 @@ public class PurchagedBook {
 		return purchagedTime;
 	}
 	
-	public PurchagedBook(Long bookId, Long pId) {
+	public PurchagedBook(Long bookId) {
 		super();
 		this.bookId = bookId;
-		this.pId = pId;
-		
-	}
-	public PurchagedBook() {
-		super();
+		this.purchagedTime = new Date();
 	}
 	
-	
-
 }

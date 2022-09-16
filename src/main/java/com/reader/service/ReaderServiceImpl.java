@@ -18,11 +18,13 @@ public class ReaderServiceImpl implements IReaderService{
 	PurchagedBookRepo pbRepo;
 	
 	@Override
-	public Long createReader(Reader reader,PurchagedBook pbook) {
+	public Long createReader(Reader reader) {
 		Reader newReader = readerRepo.save(reader);
+		Long bookId = reader.getBookId();
+		PurchagedBook pbook = new PurchagedBook(bookId);
+		pbook.setBookId(reader.getBookId());
 		PurchagedBook nbook = pbRepo.save(pbook);
 		return newReader.getrId();
 	}
-		
 
 }

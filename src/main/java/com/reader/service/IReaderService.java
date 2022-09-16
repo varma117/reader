@@ -8,5 +8,5 @@ import com.reader.model.Reader;
 @Component
 public interface IReaderService {
 
-	public Long createReader(Reader reader,PurchagedBook pbook);
+	public Long createReader(Reader reader);
 }

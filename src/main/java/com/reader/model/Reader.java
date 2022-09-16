@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "reader")
@@ -19,6 +20,15 @@ public class Reader {
 	@Column
 	private String email;
 	
+	@Transient
+	private Long bookId;
+	
+	public Long getBookId() {
+		return bookId;
+	}
+	public void setBookId(Long bookId) {
+		this.bookId = bookId;
+	}
 	public String getName() {
 		return name;
 	}
@@ -42,12 +52,13 @@ public class Reader {
 	public Reader() {
 		super();
 	}
-	public Reader(Long rId, String name, String email) {
+	
+	public Reader(Long rId, String name, String email, Long bookId) {
 		super();
 		this.rId = rId;
 		this.name = name;
 		this.email = email;
-		
+		this.bookId = bookId;
 	}
 	
 
